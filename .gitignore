@@ -1,0 +1,31 @@
+# Node.js / Vite frontend
+notesApp-frontend/node_modules/
+notesApp-frontend/dist/
+notesApp-frontend/.vite/
+notesApp-frontend/.env.local
+notesApp-frontend/.env
+
+# Java / Spring Boot backend
+notesApp/target/
+notesApp/.mvn/
+notesApp/.classpath
+notesApp/.project
+notesApp/.settings/
+notesApp/.idea/
+notesApp/*.iml
+
+# OS/Editor junk
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.tmp
+
+# IntelliJ / VS Code
+*.iml
+.idea/
+.vscode/
+
+# Environment files
+.env
+.env.*
