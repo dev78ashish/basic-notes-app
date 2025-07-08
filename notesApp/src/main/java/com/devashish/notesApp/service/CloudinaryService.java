@@ -7,16 +7,24 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class ImageUploadService {
+public class CloudinaryService {
 
     @Autowired
     private Cloudinary cloudinary;
 
-    public String uploadFile(MultipartFile file) throws IOException {
+    public Map<String, String> uploadFile(MultipartFile file) throws IOException {
         Map<?, ?> result = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
-        return result.get("secure_url").toString(); // 🔗 The final image URL
+
+        String imageUrl = result.get("secure_url").toString();
+        String publicId = result.get("public_id").toString();
+
+        Map<String, String> response = new HashMap<>();
+        response.put("imageUrl", imageUrl);
+        response.put("publicId", publicId);
+        return response;
     }
 }
